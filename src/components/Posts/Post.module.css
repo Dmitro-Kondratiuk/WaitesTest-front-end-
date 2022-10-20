@@ -1,0 +1,15 @@
+.image {
+    width: 150px;
+}
+.table {
+
+}
+.active {
+    cursor: pointer;
+    color: goldenrod;
+}
+.item {
+    cursor: pointer;
+    color : black;
+    text-decoration: none;
+}
