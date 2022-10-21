@@ -77,8 +77,9 @@ export const getOnePost = (id) => {
 }
 export const getCreatePost = (name, description, price, links) => {
     return (dispatch) => {
-        postApi.getCreate(name, description, price, links).then(response => response.data
-        )
+        dispatch(showPreloader(true))
+        postApi.getCreate(name, description, price, links).then(response => response.data)
+        dispatch(showPreloader(false))
     }
 }
 export const getUpdatePost = (id, name, description, prise, links) => {
@@ -88,9 +89,11 @@ export const getUpdatePost = (id, name, description, prise, links) => {
 }
 export const getUpdatePhoto = (id, link) => {
     return (dispatch) => {
+        dispatch(showPreloader(true))
         postApi.getUpdatePhoto(id, link).then(response => {
             return response.data
         })
+        dispatch(showPreloader(false))
     }
 }
 

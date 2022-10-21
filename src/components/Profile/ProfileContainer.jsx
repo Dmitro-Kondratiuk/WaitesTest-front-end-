@@ -4,10 +4,12 @@ import {connect} from "react-redux";
 import {getProfile} from "../../redux/profile-reducer";
 import {useLocation, useNavigate, useParams} from "react-router-dom";
 import {compose} from "redux";
+import {Navigate} from "react-router";
 
 class ProfileContainer extends React.Component{
 
     componentDidMount() {
+
         let id = this.props.router.params.id
         if (!id){
             id = this.props.id
@@ -16,13 +18,17 @@ class ProfileContainer extends React.Component{
 
     }
     render() {
+        if(!this.props.isAuth){
+            return <Navigate to={"/login"}/>
+        }
         return <Profile profile={this.props.profile}/>
     }
 
 }
 const mapStateToProps = (state)=>({
     profile: state.profilePage.profile,
-    id: state.auth.id
+    id: state.auth.id,
+    isAuth: state.auth.isAuth
 })
 function withRouter(ProfileContainer){
     function PostContainerAPIPops(props){

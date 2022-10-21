@@ -7,7 +7,8 @@ let instance = axios.create({
 
 export const userAPI =({
     getUsers(){
-        return instance.get(`user`).then(response =>{return response.data})
+        return instance.get(`user`).then(response =>{
+            return response.data})
     },
     getRegister(username,password,name,last_name,email){
         return instance.post(`user/register`,{username,password,name,last_name,email})

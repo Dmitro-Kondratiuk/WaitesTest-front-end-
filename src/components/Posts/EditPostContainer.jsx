@@ -7,6 +7,7 @@ import {compose} from "redux";
 
 class EditPostContainer extends React.Component{
     componentDidMount() {
+
         let id = this.props.router.params.id
         this.props.getOnePost(id)
     }

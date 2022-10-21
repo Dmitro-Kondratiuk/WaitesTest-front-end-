@@ -13,13 +13,14 @@ import HeaderContainer from "./components/Header/HeaderContainer";
 import EditPostContainer from "./components/Posts/EditPostContainer";
 import PostCreateContainer from "./components/Posts/PostCreateContainer";
 import {initializedApp} from "./redux/app-reducer";
+import Profile from "./components/Profile/Profile";
+import Preloader from "./components/common/Preloader/Prelader";
 
 
 class App extends Component {
     componentDidMount() {
         this.props.initializedApp()
     }
-
     render() {
         return (
             <div className="app-one">

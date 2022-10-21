@@ -3,6 +3,9 @@ import PostsCreate from "./PostsCreate";
 import {connect} from "react-redux";
 
 class PostCreateContainer extends React.Component{
+    componentDidMount() {
+
+    }
 
     render() {
         let userid = this.props.id
