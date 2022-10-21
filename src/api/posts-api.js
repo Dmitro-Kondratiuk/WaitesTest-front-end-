@@ -7,7 +7,7 @@ let instance = axios.create({
 
 export const postApi = ({
     getPost(currentPage) {
-        return instance.get(`posts?page=${currentPage}&expand=user`).then(response => {
+        return instance.get(`posts?page=${currentPage}&expand=user`,{ headers: {Authorization: `Bearer ${localStorage.getItem('access_token')}`}}).then(response => {
             return response
         })
     },

@@ -7,7 +7,7 @@ let instance = axios.create({
 
 export const userAPI =({
     getUsers(){
-        return instance.get(`user`).then(response =>{
+        return instance.get(`user`,{headers:{Authorization:`Bearer ${localStorage.getItem('access_token')}`}}).then(response =>{
             return response.data})
     },
     getRegister(username,password,name,last_name,email){
