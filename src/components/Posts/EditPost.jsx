@@ -6,7 +6,6 @@ import style from "./Post.module.css";
 import no_image from "../../uploads/img_546302.png";
 
 const EditPostContainerForm = (props) => {
-    console.log(props.post)
     return (
         <form onSubmit={props.handleSubmit}>
             <div>
@@ -30,10 +29,10 @@ const EditPostContainerForm = (props) => {
                 Link
                 <Field component={Input} name={'links'} type={'links'} placeholder={props.post.links}/>
             </div>
-            <div>
-                Photo
-                <Field component={Input} name={'link'} type={'input'} placeholder={props.post.photos}/>
-            </div>
+            {/*<div>*/}
+            {/*    Photo*/}
+            {/*    <Field component={Input} name={'link'} type={'input'} placeholder={props.post.photos}/>*/}
+            {/*</div>*/}
             <button>Edit</button>
         </form>
     )
@@ -42,7 +41,7 @@ const EditPostContainerReduxForm = reduxForm({form: "edit"})(EditPostContainerFo
 const EditPost = (props) => {
     const onSubmit = (formData) => {
         props.getUpdatePost(formData.id, formData.name, formData.description, formData.price, formData.links)
-        props.getUpdatePhoto(formData.id,formData.link)
+        // props.getUpdatePhoto(formData.id,formData.link)
     }
     return (
         <div>

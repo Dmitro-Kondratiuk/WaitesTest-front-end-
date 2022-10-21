@@ -4,7 +4,7 @@ import {NavLink} from "react-router-dom";
 import Preloader from "../common/Preloader/Prelader";
 
 const Users = (props) => {
-    if (!props.users){
+    if (props.users.length == 0){
         return <Preloader />
     }
     return (

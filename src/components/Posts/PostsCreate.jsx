@@ -25,10 +25,10 @@ const PostsCreateForm = (props) => {
             <div>
                 links <Field component={Input} name={'links'} validate={[required]}/>
             </div>
-            <div>
-                Photo
-                <Field component={Input} name={'photos'} type={'input'}/>
-            </div>
+            {/*<div>*/}
+            {/*    Photo*/}
+            {/*    <Field component={Input} name={'photos'} type={'input'}/>*/}
+            {/*</div>*/}
             <button>Send</button>
         </form>
     )
@@ -38,7 +38,7 @@ const PostsCreateReduxForm = reduxForm({form: "post_create"})(PostsCreateForm)
 const PostsCreate = (props) => {
     const onSubmit = (formData) => {
         props.getCreatePost(formData.name, formData.description, formData.price, formData.links)
-        props.getUpdatePhoto(formData.id, formData.link)
+        // props.getUpdatePhoto(formData.id, formData.link)
     }
     return (
         <div>

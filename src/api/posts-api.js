@@ -23,17 +23,19 @@ export const postApi = ({
         })
     },
     getCreate(name, description, price, links) {
-        return instance.post(`post/create`, {name, description, price, links}).then(response => {
+        return instance.post(`post/create`, {name, description, price, links},{headers: {Authorization: `Bearer ${localStorage.getItem('access_token')}`}}).then(response => {
             return response.data
         })
     },
-    getUpdatePost(id, name, description, prise, links) {
-        return instance.put(`post/${id}`, {name, description, prise, links}).then(response => {
+    getUpdatePost(id, name, description, price, links) {
+        debugger
+        return instance.put(`post/${id}`, {name, description, price, links},{headers: {Authorization: `Bearer ${localStorage.getItem('access_token')}`}}).then(response => {
+            debugger
             return response.data
         })
     },
     getUpdatePhoto(id, link) {
-        return instance.post(`photos`, {id, link}).then(response => {
+        return instance.post(`photos`, {id, link},{headers: {Authorization: `Bearer ${localStorage.getItem('access_token')}`}}).then(response => {
             return response.data
         })
     }

@@ -12,7 +12,7 @@ const Posts = (props) => {
     return (
         <>
             {
-                !props.posts ? <Preloader/>:null
+                props.posts.length == 0 ? <Preloader/>:null
             }
             <div>
                 <NavLink to={'create'}>

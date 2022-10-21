@@ -82,9 +82,11 @@ export const getCreatePost = (name, description, price, links) => {
         dispatch(showPreloader(false))
     }
 }
-export const getUpdatePost = (id, name, description, prise, links) => {
+export const getUpdatePost = (id, name, description, price, links) => {
     return (dispatch) => {
-        profileAPI.getUpdatePost(id, name, description, prise, links).then(response => response.data)
+        debugger
+        postApi.getUpdatePost(id, name, description, price, links).then(data =>
+       data)
     }
 }
 export const getUpdatePhoto = (id, link) => {

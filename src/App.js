@@ -13,7 +13,6 @@ import HeaderContainer from "./components/Header/HeaderContainer";
 import EditPostContainer from "./components/Posts/EditPostContainer";
 import PostCreateContainer from "./components/Posts/PostCreateContainer";
 import {initializedApp} from "./redux/app-reducer";
-import Profile from "./components/Profile/Profile";
 import Preloader from "./components/common/Preloader/Prelader";
 
 
@@ -21,7 +20,11 @@ class App extends Component {
     componentDidMount() {
         this.props.initializedApp()
     }
+
     render() {
+        if (!this.props.initialized) {
+            return <Preloader/>
+        }
         return (
             <div className="app-one">
                 <HeaderContainer/>
@@ -44,8 +47,9 @@ class App extends Component {
         )
     }
 }
-const mapStateToProps=(state)=>({
-    initialized : state.app.initialized
+
+const mapStateToProps = (state) => ({
+    initialized: state.app.initialized
 })
 
-export default connect(mapStateToProps,{initializedApp})(App);
+export default connect(mapStateToProps, {initializedApp})(App);
