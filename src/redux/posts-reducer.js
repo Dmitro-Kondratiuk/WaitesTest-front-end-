@@ -84,7 +84,6 @@ export const getCreatePost = (name, description, price, links) => {
 }
 export const getUpdatePost = (id, name, description, price, links) => {
     return (dispatch) => {
-        debugger
         postApi.getUpdatePost(id, name, description, price, links).then(data =>
        data)
     }

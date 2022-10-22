@@ -28,7 +28,6 @@ export const postApi = ({
         })
     },
     getUpdatePost(id, name, description, price, links) {
-        debugger
         return instance.put(`post/${id}`, {name, description, price, links},{headers: {Authorization: `Bearer ${localStorage.getItem('access_token')}`}}).then(response => {
             debugger
             return response.data
