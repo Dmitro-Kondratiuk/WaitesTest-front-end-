@@ -8,7 +8,7 @@ import {Navigate} from "react-router";
 
 class ProfileContainer extends React.Component{
 
-    componentDidMount() {
+    refreshProfile() {
 
         let id = this.props.router.params.id
         if (!id){
@@ -17,6 +17,15 @@ class ProfileContainer extends React.Component{
         this.props.getProfile(id)
 
     }
+    componentDidMount() {
+        this.refreshProfile()
+    }
+    componentDidUpdate(prevProps, prevState, snapshot) {
+        if(this.props.router.params.id !== prevProps.router.params.id){
+            this.refreshProfile()
+        }
+    }
+
     render() {
         if(!this.props.isAuth){
             return <Navigate to={"/login"}/>

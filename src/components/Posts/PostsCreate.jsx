@@ -7,7 +7,6 @@ import {connect} from "react-redux";
 import {getCreatePost, getUpdatePhoto} from "../../redux/posts-reducer";
 
 const PostsCreateForm = (props) => {
-    console.log(props.id)
     return (
         <form onSubmit={props.handleSubmit}>
             <div>
@@ -29,6 +28,10 @@ const PostsCreateForm = (props) => {
             {/*    Photo*/}
             {/*    <Field component={Input} name={'photos'} type={'input'}/>*/}
             {/*</div>*/}
+            {props.error && <div>
+                {props.error}
+            </div>
+            }
             <button>Send</button>
         </form>
     )
@@ -38,7 +41,6 @@ const PostsCreateReduxForm = reduxForm({form: "post_create"})(PostsCreateForm)
 const PostsCreate = (props) => {
     const onSubmit = (formData) => {
         props.getCreatePost(formData.name, formData.description, formData.price, formData.links)
-        // props.getUpdatePhoto(formData.id, formData.link)
     }
     return (
         <div>

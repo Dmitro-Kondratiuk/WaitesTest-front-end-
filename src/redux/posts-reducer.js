@@ -7,6 +7,7 @@ const SET_CURRENT_PAGE = 'SET_CURRENT_PAGE'
 const SET_TOTAL_POSTS_COUNT = 'SET_TOTAL_POSTS_COUNT'
 const SHOW_PRELOADER = 'SHOW_PRELOADER'
 const SET_AUTHOR = "SET_AUTHOR"
+const SAVE_PHOTO_SUCCESS = "SET_AUTHOR"
 
 let initial = {
     posts: [],
@@ -48,7 +49,7 @@ const postsReducer = (state = initial, action) => {
     }
 }
 
-
+export const savePhotoSuccess = (photos) => ({type: SAVE_PHOTO_SUCCESS, photos})
 export const setPosts = (posts) => ({type: SET_POSTS, posts})
 export const setPost = (post) => ({type: SET_POST, post})
 export const setCurrentPage = (currentPage) => ({type: SET_CURRENT_PAGE, currentPage})
@@ -83,7 +84,7 @@ export const getCreatePost = (name, description, price, links) => {
     }
 }
 export const getUpdatePost = (id, name, description, price, links) => {
-    return (dispatch) => {
+    return ()=> {
         postApi.getUpdatePost(id, name, description, price, links).then(data =>
        data)
     }
@@ -97,5 +98,6 @@ export const getUpdatePhoto = (id, link) => {
         dispatch(showPreloader(false))
     }
 }
+
 
 export default postsReducer;
