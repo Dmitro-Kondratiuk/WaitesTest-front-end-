@@ -39,7 +39,7 @@ const Posts = (props) => {
                                     <span>Price:{post.price}</span>
                                 </div>
                                 <div>
-                                    {/*<span>Author:{post.user.name}</span>*/}
+                                    <span>Author:{post.user.name}</span>
                                 </div>
                                 <div>
                                     <NavLink to={'edit-post/' + post.id}>Edit Post</NavLink>
