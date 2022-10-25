@@ -2,17 +2,14 @@ import style from "./Post.module.css"
 import no_image from "../../uploads/img_546302.png"
 import {NavLink} from "react-router-dom";
 import Preloader from "../common/Preloader/Prelader";
+import Paginator from "./Paginator";
 
 const Posts = (props) => {
-    let pageCount = Math.ceil(props.totalPostsCount / props.pageSize);
-    let pages = [];
-    for (let i = 1; i <= pageCount; i++) {
-        pages.push(i);
-    }
+
     return (
         <>
             {
-                props.posts.length == 0 ? <Preloader/>:null
+                props.posts.length === 0 ? <Preloader/> : null
             }
             <div>
                 <NavLink to={'create'}>
@@ -21,9 +18,8 @@ const Posts = (props) => {
                 <div>
                     <br/>
                     <div>
-                        {pages.map(p => {
-                            return <span key={p} className={props.currentPage === p ? style.active:style.item }
-                                         onClick={() => {props.onPage(p)}}>{p}</span>})}
+                        <Paginator currentPage={props.currentPage} onPageChanged={props.onPage}
+                                   totalPostsCount={props.totalPostsCount} pageSize={props.pageSize}/>
                     </div>
                     {
                         props.posts.map(post => <div key={post.id}>
@@ -43,7 +39,7 @@ const Posts = (props) => {
                                     <span>Price:{post.price}</span>
                                 </div>
                                 <div>
-                                    <span>Author:{post.user.name}</span>
+                                    {/*<span>Author:{post.user.name}</span>*/}
                                 </div>
                                 <div>
                                     <NavLink to={'edit-post/' + post.id}>Edit Post</NavLink>

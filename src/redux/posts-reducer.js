@@ -1,5 +1,5 @@
 import {postApi} from "../api/posts-api";
-import {profileAPI} from "../api/profile-api";
+
 
 const SET_POSTS = "SET_POSTS";
 const SET_POST = "SET_POST";
@@ -7,7 +7,7 @@ const SET_CURRENT_PAGE = 'SET_CURRENT_PAGE'
 const SET_TOTAL_POSTS_COUNT = 'SET_TOTAL_POSTS_COUNT'
 const SHOW_PRELOADER = 'SHOW_PRELOADER'
 const SET_AUTHOR = "SET_AUTHOR"
-const SAVE_PHOTO_SUCCESS = "SET_AUTHOR"
+
 
 let initial = {
     posts: [],
@@ -49,7 +49,6 @@ const postsReducer = (state = initial, action) => {
     }
 }
 
-export const savePhotoSuccess = (photos) => ({type: SAVE_PHOTO_SUCCESS, photos})
 export const setPosts = (posts) => ({type: SET_POSTS, posts})
 export const setPost = (post) => ({type: SET_POST, post})
 export const setCurrentPage = (currentPage) => ({type: SET_CURRENT_PAGE, currentPage})

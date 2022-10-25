@@ -8,7 +8,7 @@ import {autologin} from "../../redux/auth-reducer";
 
 class PostsContainer extends React.Component {
     componentDidMount() {
-
+    console.log(this.props.totalPostsCount)
         this.props.getPosts(this.props.currentPage);
 
     }
@@ -17,7 +17,9 @@ class PostsContainer extends React.Component {
         this.props.getPosts(pageNumber)
     }
 
+
     render() {
+
         if(!this.props.isAuth){
             return <Navigate to={"/login"}/>
         }
